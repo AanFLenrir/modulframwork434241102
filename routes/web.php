@@ -92,3 +92,5 @@ Route::get('/admin/user', [UserController::class, 'index']);
 Route::get('/admin/role-user', [RoleUserController::class, 'index']);
 
 // ini semua diatas harus masuk middlaware isadmintrator 
+
+// buat perubahan git
