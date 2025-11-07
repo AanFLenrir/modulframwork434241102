@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigasi */
+.navbar {
+    list-style: none;
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    background-color: #3498db;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Konten */
+section {
+    margin-right: 200px;
+    margin-left: 200px;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #006699;
+}
+
+/* Footer */
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+
+.home-header {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.home-header img {
+    border-radius: 8px;
+}
+
+.video {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.video p {
+    margin-top: 70px;
+}
+
+#struktur, #layanan, #visi {
+    text-align: center;
+}
+
+#struktur table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+#struktur th, #struktur td {
+    padding: 8px 15px;
+}
+
+#layanan ul, #visi ol {
+    display: inline-block;
+    text-align: left; 
+}
+
