@@ -1,39 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Daftar Pet</title>
-</head>
-<body>
-    <h1>Daftar Pet</h1>
+@extends('layouts.admin')
 
-    <table border="1" cellpadding="8">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nama</th>
-                <th>Tanggal Lahir</th>
-                <th>Warna / Tanda</th>
-                <th>Jenis Kelamin</th>
-                <th>Nama Pemilik</th>
-                <th>Ras Hewan</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse ($pet as $item)
+@section('title', 'Data Pet')
+
+@section('content')
+<div class="container">
+    <h1 class="mb-4">Daftar Pet</h1>
+
+    <a href="{{ route('admin.pet.create') }}" class="btn btn-success mb-3">
+        <i class="bi bi-plus-circle"></i> Tambah Pet
+    </a>
+
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
+    <div class="table-responsive shadow-sm rounded">
+        <table class="table table-bordered align-middle">
+            <thead class="table-light">
                 <tr>
-                    <td>{{ $item->idpet }}</td>
-                    <td>{{ $item->nama }}</td>
-                    <td>{{ $item->tanggal_lahir }}</td>
-                    <td>{{ $item->warna_tanda }}</td>
-                    <td>{{ $item->jenis_kelamin }}</td>
-                    <td>{{ $item->pemilik->user->nama ?? '-' }}</td>
-                    <td>{{ $item->rasHewan->nama_ras ?? '-' }}</td>
+                    <th>No</th>
+                    <th>Nama Pet</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Pemilik</th>
+                    <th>Ras Hewan</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Warna / Tanda</th>
                 </tr>
-            @empty
-                <tr><td colspan="7">Tidak ada data</td></tr>
-            @endforelse
-        </tbody>
-    </table>
-</body>
-</html>
+            </thead>
+            <tbody>
+                @forelse ($pet as $index => $item)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $item->nama }}</td>
+                        <td>{{ $item->jenis_kelamin }}</td>
+                        <td>{{ $item->pemilik->user->nama ?? '-' }}</td>
+                        <td>{{ $item->rasHewan->nama_ras ?? '-' }}</td>
+                        <td>{{ $item->tanggal_lahir ?? '-' }}</td>
+                        <td>{{ $item->warna_tanda ?? '-' }}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="7" class="text-center">Tidak ada data</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+</div>
+@endsection

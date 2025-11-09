@@ -1,33 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Daftar User</title>
-</head>
-<body>
-    <h1>Daftar User</h1>
+@extends('layouts.admin')
 
-    <table border="1" cellpadding="8">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Password</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse ($user as $item)
+@section('title', 'Data User')
+
+@section('content')
+<div class="container">
+    <h1 class="mb-4">Daftar User</h1>
+
+    <a href="{{ route('admin.user.create') }}" class="btn btn-success mb-3">
+        <i class="bi bi-plus-circle"></i> Tambah User
+    </a>
+
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
+    <div class="table-responsive shadow-sm rounded">
+        <table class="table table-bordered align-middle">
+            <thead class="table-light">
                 <tr>
-                    <td>{{ $item->iduser }}</td>
-                    <td>{{ $item->nama }}</td>
-                    <td>{{ $item->email }}</td>
-                    <td>{{ $item->password }}</td>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Email</th>
                 </tr>
-            @empty
-                <tr><td colspan="4">Tidak ada data</td></tr>
-            @endforelse
-        </tbody>
-    </table>
-</body>
-</html>
+            </thead>
+            <tbody>
+                @forelse ($users as $index => $user)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $user->nama }}</td>
+                        <td>{{ $user->email }}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="3" class="text-center">Tidak ada data</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+</div>
+@endsection

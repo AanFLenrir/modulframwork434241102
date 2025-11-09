@@ -10,7 +10,7 @@ class Role extends Model
     protected $primaryKey = 'idrole';
     public $timestamps = false;
 
-    protected $fillable = ['idrole' , 'nama_role'];
+    protected $fillable = ['nama_role'];
 
     // Relasi ke RoleUser (One to Many)
     public function roleUsers()

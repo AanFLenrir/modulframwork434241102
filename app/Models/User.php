@@ -16,11 +16,6 @@ class User extends Authenticatable
 
     protected $fillable = ['iduser', 'nama', 'email', 'password'];
 
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
     // 🔹 Relasi ke RoleUser (One to Many)
     public function roleUser()
     {

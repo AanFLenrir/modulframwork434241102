@@ -1,68 +1,44 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
     <h1 class="mb-4">Dashboard Administrator</h1>
-    <div class="card p-4">
+
+    <div class="card p-4 shadow-sm">
         <p>Selamat datang, <strong>{{ session('user_name') }}</strong>!</p>
         <p>Anda login sebagai <strong>{{ session('user_role_name') }}</strong>.</p>
 
-        <div class="row mt-4">
-            <div class="col-md-6 mb-3">
-                <h5>Manajemen Data Master</h5>
-                <div class="d-grid gap-2">
-                    <a href="{{ route('admin.jenis-hewan.index') }}" class="btn btn-primary">
-                        Kelola Jenis Hewan
-                    </a>
-                    <a href="{{ route('admin.pemilik.index') }}" class="btn btn-success">
-                        Kelola Pemilik
-                    </a>
-                    <a href="/admin/ras-hewan" class="btn btn-info text-white">
-                        Kelola Ras Hewan
-                    </a>
-                    <a href="/admin/kategori" class="btn btn-warning text-white">
-                        Kelola Kategori
-                    </a>
-                    <a href="/admin/kategori-klinis" class="btn btn-secondary">
-                        Kelola Kategori Klinis
-                    </a>
-                </div>
-            </div>
+        <hr>
 
-            <div class="col-md-6 mb-3">
-                <h5>Manajemen Sistem</h5>
-                <div class="d-grid gap-2">
-                    <a href="/admin/kode-tindakan-terapi" class="btn btn-dark">
-                        Kode Tindakan & Terapi
-                    </a>
-                    <a href="/admin/pet" class="btn btn-outline-primary">
-                        Kelola Pet
-                    </a>
-                    <a href="/admin/role" class="btn btn-outline-success">
-                        Kelola Role
-                    </a>
-                    <a href="/admin/user" class="btn btn-outline-info">
-                        Kelola User
-                    </a>
-                    <a href="/admin/role-user" class="btn btn-outline-warning">
-                        Kelola Role User
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-12">
-                <h5>Quick Actions</h5>
-                <div class="d-flex flex-wrap gap-2">
-                    <a href="/admin/dashboard" class="btn btn-light border">
-                        <i class="fas fa-tachometer-alt"></i> Dashboard
-                    </a>
-                    <a href="/home" class="btn btn-light border">
-                        <i class="fas fa-home"></i> Home
-                    </a>
-                </div>
-            </div>
+        <h4 class="mt-3 mb-3">📁 Menu Data Master</h4>
+        <div class="d-flex flex-wrap gap-2">
+            <a href="{{ route('admin.user.index') }}" class="btn btn-outline-primary">
+                Data User
+            </a>
+            <a href="{{ route('admin.role-user.index') }}" class="btn btn-outline-secondary">
+                Manajemen Role
+            </a>
+            <a href="{{ route('admin.jenis-hewan.index') }}" class="btn btn-outline-success">
+                Jenis Hewan
+            </a>
+            <a href="{{ route('admin.ras-hewan.index') }}" class="btn btn-outline-info">
+                Ras Hewan
+            </a>
+            <a href="{{ route('admin.pemilik.index') }}" class="btn btn-outline-warning">
+                Data Pemilik
+            </a>
+            <a href="{{ route('admin.pet.index') }}" class="btn btn-outline-danger">
+                Data Pet
+            </a>
+            <a href="{{ route('admin.kategori.index') }}" class="btn btn-outline-dark">
+                Data Kategori
+            </a>
+            <a href="{{ route('admin.kategori-klinis.index') }}" class="btn btn-outline-primary">
+                Data Kategori Klinis
+            </a>
+            <a href="{{ route('admin.kode-tindakan-terapi.index') }}" class="btn btn-outline-success">
+                Data Kode Tindakan Terapi
+            </a>
         </div>
     </div>
 </div>

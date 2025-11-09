@@ -11,7 +11,6 @@ class KodeTindakanTerapi extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'idkode_tindakan_terapi',
         'kode',
         'deskripsi_tindakan_terapi',
         'idkategori',

@@ -8,8 +8,12 @@ class JenisHewan extends Model
 {
     protected $table = 'jenis_hewan';
     protected $primaryKey = 'idjenis_hewan';
-    protected $fillable = ['nama_jenis_hewan'];
-    
-    // mematikan created_at dan updated_at
     public $timestamps = false;
+
+    protected $fillable = ['nama_jenis_hewan'];
+    // One to Many RasHewan
+    public function rasHewan()
+    {
+        return $this->hasMany(RasHewan::class, 'idjenis_hewan', 'idjenis_hewan');
+    }
 }

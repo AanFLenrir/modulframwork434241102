@@ -26,8 +26,8 @@ class isAdministrator
         if ($userRole == 1) {
             return $next($request);
         }
-        
-        else// Kalau bukan admin → tolak
+
+        // Kalau bukan admin → tolak
         return back()->with('error', 'Akses ditolak. Anda tidak memiliki izin untuk mengakses halaman ini.');
     }
 }

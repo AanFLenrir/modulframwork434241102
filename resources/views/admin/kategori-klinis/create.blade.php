@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
-@section('title', 'Tambah Jenis Hewan')
+@section('title', 'Tambah Kategori Klinis')
 
 @section('content')
 <div class="container">
-    <h1 class="mb-4">Tambah Jenis Hewan</h1>
+    <h1 class="mb-4">Tambah Kategori Klinis</h1>
 
     <div class="card shadow-sm rounded">
         <div class="card-body">
@@ -12,27 +12,27 @@
                 <div class="alert alert-danger">{{ session('error') }}</div>
             @endif
 
-            <form action="{{ route('admin.jenis-hewan.store') }}" method="POST">
+            <form action="{{ route('admin.kategori-klinis.store') }}" method="POST">
                 @csrf
 
                 <div class="mb-3">
-                    <label for="nama_jenis_hewan" class="form-label fw-semibold">
-                        Nama Jenis Hewan <span class="text-danger">*</span>
+                    <label for="nama_kategori_klinis" class="form-label fw-semibold">
+                        Nama Kategori Klinis <span class="text-danger">*</span>
                     </label>
                     <input type="text"
-                           class="form-control @error('nama_jenis_hewan') is-invalid @enderror"
-                           id="nama_jenis_hewan"
-                           name="nama_jenis_hewan"
-                           value="{{ old('nama_jenis_hewan') }}"
-                           placeholder="Masukkan nama jenis hewan"
+                           id="nama_kategori_klinis"
+                           name="nama_kategori_klinis"
+                           class="form-control @error('nama_kategori_klinis') is-invalid @enderror"
+                           value="{{ old('nama_kategori_klinis') }}"
+                           placeholder="Masukkan nama kategori klinis"
                            required>
-                    @error('nama_jenis_hewan')
+                    @error('nama_kategori_klinis')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <a href="{{ route('admin.jenis-hewan.index') }}" class="btn btn-secondary">
+                    <a href="{{ route('admin.kategori-klinis.index') }}" class="btn btn-secondary">
                         <i class="bi bi-arrow-left-circle"></i> Kembali
                     </a>
                     <button type="submit" class="btn btn-success">
